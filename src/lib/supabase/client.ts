@@ -8,14 +8,18 @@ export type Database = {
         Row: Entrega;
         Insert: EntregaInsert;
         Update: EntregaUpdate;
+        Relationships: [];
       };
     };
+    Views: Record<string, never>;
     Functions: {
       reprogramar_entrega: {
         Args: { p_id: string; p_fecha: string; p_hora: string | null };
         Returns: Entrega;
       };
     };
+    Enums: Record<string, never>;
+    CompositeTypes: Record<string, never>;
   };
 };
 
