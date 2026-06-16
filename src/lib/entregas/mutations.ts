@@ -36,7 +36,7 @@ export async function actualizarEntrega(
   const supabase = getSupabaseBrowserClient();
   const { data, error } = await supabase
     .from("entregas")
-    .update(limpiar(payload))
+    .update(limpiar(payload) as any)
     .eq("id", id)
     .select()
     .single();
