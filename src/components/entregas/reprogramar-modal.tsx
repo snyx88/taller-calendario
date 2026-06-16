@@ -66,7 +66,7 @@ export function ReprogramarModal({ open, onOpenChange, entrega }: Props) {
     setError(null);
     try {
       await reprogramar(entrega.id, fecha, hora);
-      toast("Entrega reprogramada", "exito");
+      toast("Entrega reprogramada, Flor", "exito");
       onOpenChange(false);
     } catch (e) {
       setError(e instanceof Error ? e.message : "No se pudo reprogramar");

@@ -41,10 +41,10 @@ export function EntregaModal({
     try {
       if (entrega) {
         await actualizarEntrega(entrega.id, payload);
-        toast("Entrega actualizada", "exito");
+        toast("Cambios guardados, Flor", "exito");
       } else {
         await crearEntrega(payload);
-        toast("Entrega creada", "exito");
+        toast("¡Vehículo registrado con éxito, Flor!", "exito");
       }
       onOpenChange(false);
     } catch (e) {
@@ -62,7 +62,7 @@ export function EntregaModal({
     setEliminando(true);
     try {
       await eliminarEntrega(entrega.id);
-      toast("Entrega eliminada", "exito");
+      toast("Entrega eliminada, Flor", "exito");
       onOpenChange(false);
     } catch (e) {
       toast(

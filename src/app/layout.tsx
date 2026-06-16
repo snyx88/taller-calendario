@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Agenda de Entregas",
+  title: "Gestión de Entregas Flor",
   description: "Agenda de entregas del taller en tiempo real",
   appleWebApp: {
     capable: true,
@@ -47,7 +47,7 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-zinc-100 text-zinc-900">
         <ToastProvider>
-          <div className="mx-auto flex min-h-dvh max-w-md flex-col bg-zinc-50 pb-20 shadow-sm">
+          <div className="fondo-flores mx-auto flex min-h-dvh max-w-md flex-col pb-20 shadow-sm">
             {children}
           </div>
           <BottomNav />

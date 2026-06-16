@@ -34,9 +34,9 @@ export default function LoginPage() {
           <LockKeyhole className="h-8 w-8" />
         </div>
 
-        <h1 className="mt-6 text-xl font-bold">Acceso restringido</h1>
+        <h1 className="mt-6 text-xl font-bold">Taller de Flor</h1>
         <p className="mt-1 text-sm text-zinc-400">
-          Ingresa el PIN para continuar
+          Acceso Autorizado — ingresa el código del taller
         </p>
 
         <form onSubmit={ingresar} className="mt-8 w-full space-y-4">

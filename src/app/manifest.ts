@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Agenda de Entregas",
-    short_name: "Entregas",
+    name: "Entregas de Flor",
+    short_name: "Entregas Flor",
     description: "Agenda de entregas del taller en tiempo real",
     start_url: "/",
     display: "standalone",
