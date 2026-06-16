@@ -31,8 +31,8 @@ export type Entrega = {
 
 export type EntregaInsert = {
   placa: string;
-  nombre_cliente: string;
   fecha_esperada: string;
+  nombre_cliente?: string;
   tipo_cliente?: TipoCliente;
   contacto?: string | null;
   marca?: string | null;

@@ -48,7 +48,7 @@ export function FotoUploader({ value, onChange, placa }: Props) {
         <div className="relative overflow-hidden rounded-xl border border-zinc-200">
           <Image
             src={value}
-            alt="Foto del vehiculo"
+            alt="Foto del vehículo"
             width={400}
             height={300}
             className="h-44 w-full object-cover"

@@ -18,6 +18,14 @@ function limpiar<T extends Record<string, unknown>>(payload: T): T {
   return out;
 }
 
+// Traduce errores de Postgres a mensajes claros para el usuario.
+function traducirError(error: { code?: string; message: string }): Error {
+  if (error.code === "23505") {
+    return new Error("Ya existe una entrega con esa placa.");
+  }
+  return new Error(error.message);
+}
+
 export async function crearEntrega(payload: EntregaInsert): Promise<Entrega> {
   const supabase = getSupabaseBrowserClient();
   const { data, error } = await supabase
@@ -25,7 +33,7 @@ export async function crearEntrega(payload: EntregaInsert): Promise<Entrega> {
     .insert(limpiar(payload) as any)
     .select()
     .single();
-  if (error) throw error;
+  if (error) throw traducirError(error);
   return data;
 }
 
@@ -40,7 +48,7 @@ export async function actualizarEntrega(
     .eq("id", id)
     .select()
     .single();
-  if (error) throw error;
+  if (error) throw traducirError(error);
   return data;
 }
 

@@ -10,8 +10,20 @@ import { cambiarEstado } from "@/lib/entregas/mutations";
 import { cn } from "@/lib/utils";
 import type { Entrega, EstadoEntrega } from "@/types/entrega";
 
-export function EstadoSelector({ entrega }: { entrega: Entrega }) {
-  const [abierto, setAbierto] = useState(false);
+type EstadoSelectorProps = {
+  entrega: Entrega;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+};
+
+export function EstadoSelector({
+  entrega,
+  open,
+  onOpenChange,
+}: EstadoSelectorProps) {
+  const [abiertoInterno, setAbiertoInterno] = useState(false);
+  const abierto = open ?? abiertoInterno;
+  const setAbierto = onOpenChange ?? setAbiertoInterno;
   const [calidadAbierto, setCalidadAbierto] = useState(false);
   const [guardando, setGuardando] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -57,7 +69,11 @@ export function EstadoSelector({ entrega }: { entrega: Entrega }) {
         open={abierto}
         onOpenChange={setAbierto}
         title="Cambiar estado"
-        description={`${entrega.placa} - ${entrega.nombre_cliente}`}
+        description={
+          entrega.nombre_cliente
+            ? `${entrega.placa} - ${entrega.nombre_cliente}`
+            : entrega.placa
+        }
       >
         <div className="space-y-2">
           {ESTADOS_ORDEN.map((estado) => {

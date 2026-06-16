@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 const ITEMS = [
   { href: "/", label: "Agenda", icon: CalendarDays },
-  { href: "/metricas", label: "Metricas", icon: BarChart3 },
+  { href: "/metricas", label: "Métricas", icon: BarChart3 },
 ];
 
 export function BottomNav() {
