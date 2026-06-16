@@ -22,7 +22,7 @@ export async function crearEntrega(payload: EntregaInsert): Promise<Entrega> {
   const supabase = getSupabaseBrowserClient();
   const { data, error } = await supabase
     .from("entregas")
-    .insert(limpiar(payload))
+    .insert(limpiar(payload) as any)
     .select()
     .single();
   if (error) throw error;
